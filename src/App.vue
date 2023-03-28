@@ -1,32 +1,16 @@
 <script setup>
-// import HomePage from './pages/HomePage.vue'
 </script>
 
 <template>
-  <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }" class="relative">
     <transition name="route" mode="out-in">
-      <component :is="Component"></component>
+      <component :is="Component" class="px-4 py-4 z-10"></component>
     </transition>
+    <div class="absolute w-full h-full bottom-0 blur-sm bg-no-repeat bg-cover bg-bottom bg-[url('./assets/wave.svg')]" />
   </router-view>
-  <!-- <HomePage /> -->
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-
 /* route transitions */
 .route-enter-from {
   opacity: 0;

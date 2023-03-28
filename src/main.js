@@ -7,7 +7,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: () => import('./pages/HomePage.vue') },
-        { path: '/cadastro', component: () => import('./pages/Cadastro.vue') }
+        { path: '/cadastro', component: () => import('./pages/Cadastro.vue') },
+        { path: '/exemplo/:index', component: () => import('./pages/Exemplo.vue') },
     ]
 })
 
