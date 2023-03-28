@@ -20,7 +20,10 @@ import Button from "../components/Button.vue"
             hoje mesmo e se destaque na multidão!
         </p>
         <RouterLink to="/cadastro">
-            <Button button-text="Começar" secondary class="w-full md:w-6/12 mt-12" />
+            <Button button-text="INICIAR" primary class="w-full md:w-6/12 mt-12 font-bold" />
+        </RouterLink>
+        <RouterLink to="/exemplo">
+            <Button button-text="VER EXEMPLOS" primary class="w-full md:w-6/12 mt-4 font-bold" />
         </RouterLink>
     </div>
 </template>
