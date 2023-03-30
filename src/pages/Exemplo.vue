@@ -44,7 +44,7 @@ const empresa = {
     <div class="min-h-screen w-full md:w-6/12 mx-auto">
         <div
             class="border border-2 border-green shadow-lg rounded-full w-6/12 md:w-2/12 mx-auto flex justify-center overflow-hidden">
-            <img src="../assets/logo-pizza-exemplo1.png">
+            <img src="../assets/logo-pizza-exemplo1.png" width="100px" height="100px">
         </div>
         <h1 class="text-4xl text-center mt-4">
             Pizzaria Brasil
