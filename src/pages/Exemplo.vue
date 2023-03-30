@@ -41,7 +41,7 @@ const empresa = {
 </script>
 
 <template>
-    <div class="min-h-screen">
+    <div class="min-h-screen w-full md:w-6/12 mx-auto">
         <div
             class="border border-2 border-green shadow-lg rounded-full w-6/12 md:w-2/12 mx-auto flex justify-center overflow-hidden">
             <img src="../assets/logo-pizza-exemplo1.png">

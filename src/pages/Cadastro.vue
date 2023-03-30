@@ -35,7 +35,7 @@ import Button from "../components/Button.vue"
                 </div>
             </fieldset>
         </form>
-        <router-link to="/">
+        <router-link to="/cadastro-enviado">
             <Button button-text="ENVIAR" primary class="w-full md:w-6/12 mt-12 font-bold" />
         </router-link>
     </div>

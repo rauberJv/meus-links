@@ -2,11 +2,12 @@
 </script>
 
 <template>
-  <router-view v-slot="{ Component }" class="relative">
+  <router-view v-slot="{ Component }" class="relative overflow-hidden">
     <transition name="route" mode="out-in">
       <component :is="Component" class="px-4 py-4 z-10"></component>
     </transition>
-    <div class="absolute w-full h-full bottom-0 blur-sm bg-no-repeat bg-cover bg-bottom bg-[url('./assets/wave.svg')]" />
+    <div
+      class="absolute w-full h-full bottom-0 left-0 blur-sm md:blur-none bg-no-repeat bg-cover md:bg-contain bg-bottom bg-[url('./assets/wave.svg')]" />
   </router-view>
 </template>
 

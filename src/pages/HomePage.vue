@@ -20,12 +20,14 @@ import Button from "../components/Button.vue"
             <strong class="italic">Rota Digital</strong>
             hoje mesmo e se destaque na multidão!
         </p>
-        <RouterLink to="/cadastro">
-            <Button button-text="INICIAR" primary class="w-full md:w-6/12 mt-12" />
-        </RouterLink>
-        <RouterLink to="/exemplo/1">
-            <Button button-text="VER EXEMPLOS" primary class="w-full md:w-6/12 mt-4" />
-        </RouterLink>
+        <div class="flex flex-col">
+            <RouterLink to="/cadastro">
+                <Button button-text="INICIAR" primary class="w-full md:w-6/12 mt-12" />
+            </RouterLink>
+            <RouterLink to="/exemplo/1">
+                <Button button-text="VER EXEMPLOS" primary class="w-full md:w-6/12 mt-4" />
+            </RouterLink>
+        </div>
     </div>
 </template>
 
