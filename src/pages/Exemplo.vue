@@ -43,8 +43,8 @@ const empresa = {
 <template>
     <div class="min-h-screen w-full md:w-6/12 mx-auto">
         <div
-            class="border border-2 border-green shadow-lg rounded-full w-6/12 md:w-2/12 mx-auto flex justify-center overflow-hidden">
-            <img src="https://pandabuckets.s3.sa-east-1.amazonaws.com/logo-pizza-exemplo1.png" height="100">
+            class="border border-2 border-green shadow-lg rounded-full w-6/12 md:w-2/12 h-[200px] md:h-[100px] mx-auto flex justify-center overflow-hidden">
+            <img src="https://pandabuckets.s3.sa-east-1.amazonaws.com/logo-pizza-exemplo1.png" height="200">
         </div>
         <h1 class="text-4xl text-center mt-4">
             Pizzaria Brasil
