@@ -1,25 +1,5 @@
 <script setup>
 const props = defineProps({
-    whatsapp: {
-        type: Boolean,
-        default: false
-    },
-    instagram: {
-        type: Boolean,
-        default: false
-    },
-    facebook: {
-        type: Boolean,
-        default: false
-    },
-    maps: {
-        type: Boolean,
-        default: false
-    },
-    outro: {
-        type: Boolean,
-        default: false
-    },
     texto: {
         type: String,
         default: ''
@@ -37,8 +17,16 @@ const props = defineProps({
         default: 'localhost:5173'
     }
 })
+const colors = {
+    green: 'bg-green-600 hover:bg-green-700',
+    blue: 'bg-blue-600 hover:bg-blue-700',
+    red: 'bg-red-600 hover:bg-red-700',
+    orange: 'bg-orange-600 hover:bg-orange-700',
+    cyan: 'bg-cyan-600 hover:bg-cyan-700',
+    purple: 'bg-purple-600 hover:bg-purple-700'
+}
 
-const componentClass = `${props.color} ${props.hoverColor} p-4 block rounded-md text-white font-semibold text-lg transition ease-in-out duration-300`
+const componentClass = `${colors[props.color.split('-')[1]]} p-4 block rounded-md text-white font-semibold text-lg transition ease-in-out duration-300`
 </script>
 
 <template>
