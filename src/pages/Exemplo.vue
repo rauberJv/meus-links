@@ -1,8 +1,8 @@
 <script setup>
-import { useRoute } from 'vue-router'
 import LinkButton from '../components/LinkButton.vue';
 import Button from '../components/Button.vue';
-const route = useRoute()
+import { useCadastroStore } from "../store/cadastro";
+let store = useCadastroStore()
 const empresa = {
     avatar: '../assets/logo-pizza-exemplo1.png',
     nome: 'Pizzaria Brasil',
@@ -47,7 +47,7 @@ const empresa = {
             <img src="https://pandabuckets.s3.sa-east-1.amazonaws.com/logo-pizza-exemplo1.png" height="200">
         </div>
         <h1 class="text-4xl text-center mt-4">
-            Pizzaria Brasil
+            {{store.empresa}}
         </h1>
         <h2 class="text-lg mt-2 text-centrer font-light text-gray-500">
             A melhor pizzaria da região oeste!
