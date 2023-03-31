@@ -9,7 +9,7 @@ let contato = ref('')
 let email = ref('')
 
 function enviarCadastro() {
-    store.enviarCadastro({empresa, contato, email})
+    store.enviarCadastro({ empresa, contato, email })
 }
 
 </script>
@@ -32,12 +32,14 @@ function enviarCadastro() {
                 </legend>
                 <div class="text-left">
                     <label class="block" for="empresa">Empresa</label>
-                    <input v-model="empresa" class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
+                    <input v-model="empresa"
+                        class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
                         placeholder="Digite o nome da sua empresa aqui" type="text" name="empresa" id="empresa">
                 </div>
                 <div class="text-left mt-4">
                     <label class="block" for="contato">WhatsApp</label>
-                    <input v-model="contato" class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
+                    <input v-model="contato"
+                        class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
                         placeholder="+55 (XX) XXXX-XXXX" type="text" name="contato" id="contato">
                 </div>
                 <div class="text-left mt-4">
@@ -46,7 +48,8 @@ function enviarCadastro() {
                         placeholder="exemplo@empresa.com" type="email" name="email" id="email">
                 </div>
             </fieldset>
-            <Button :loading="store.loading" :button-text="store.loading ? 'Enviando Dados' : 'Cadastrar'" primary class="w-full md:w-6/12 mt-12 font-bold" />            
+            <Button :loading="store.loading" :button-text="store.loading ? 'Enviando Dados' : 'Cadastrar'" type="primary"
+                class="w-full md:w-6/12 mt-12 font-bold" />
         </form>
     </div>
 </template>

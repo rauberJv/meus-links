@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
     whatsapp: {
         type: Boolean,
         default: false
@@ -37,12 +37,12 @@ defineProps({
         default: 'localhost:5173'
     }
 })
+
+const componentClass = `${props.color} ${props.hoverColor} p-4 block rounded-md text-white font-semibold text-lg transition ease-in-out duration-300`
 </script>
 
 <template>
-    <a :class="[color, hoverColor]"
-        class="p-4 block rounded-md text-white font-semibold text-lg transition ease-in-out duration-300" :href="link"
-        target="_blank">
-        {{ texto }}
+    <a :class="componentClass" :href="link" target="_blank">
+        {{ props.texto }}
     </a>
 </template>

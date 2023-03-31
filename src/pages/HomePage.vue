@@ -22,10 +22,10 @@ import Button from "../components/Button.vue"
         </p>
         <div class="flex flex-col">
             <RouterLink to="/cadastro">
-                <Button button-text="INICIAR" primary class="w-full md:w-6/12 mt-12" />
+                <Button button-text="INICIAR" type="primary" class="w-full md:w-6/12 mt-12" />
             </RouterLink>
             <RouterLink to="/mercadosaosebastiao">
-                <Button button-text="VER EXEMPLOS" primary class="w-full md:w-6/12 mt-4" />
+                <Button button-text="VER EXEMPLOS" type="primary" class="w-full md:w-6/12 mt-4" />
             </RouterLink>
         </div>
     </div>
