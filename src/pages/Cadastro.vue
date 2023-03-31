@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import Button from "../components/Button.vue"
 import { useCadastroStore } from "../store/cadastro";
+import { v4 as uuidv4 } from 'uuid'
+
 const store = useCadastroStore()
 
 let empresa = ref('')
@@ -10,6 +12,8 @@ let email = ref('')
 
 function enviarCadastro() {
     store.enviarCadastro({ empresa, contato, email })
+    let uuid = uuidv4();
+    console.log(uuid)
 }
 
 </script>

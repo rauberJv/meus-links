@@ -18,7 +18,7 @@ console.log(props.type)
 const componentClass = `${colorClasses[props.type]} p-4 rounded-md text-xl font-semibold transition ease-in-out duration-150`
 </script>
 <template>
-    <button :class="componentClass">
+    <button :class="componentClass" :disabled="loading">
         <span v-show="!loading"> {{ props.buttonText }} </span>
         <div v-show="loading" class="w-[28px] h-[28px] mx-auto rounded-full border-b-2 border-white animate-spin"></div>
     </button>
