@@ -24,7 +24,7 @@ import Button from "../components/Button.vue"
             <RouterLink to="/cadastro">
                 <Button button-text="INICIAR" primary class="w-full md:w-6/12 mt-12" />
             </RouterLink>
-            <RouterLink to="/exemplo/1">
+            <RouterLink to="/mercadosaosebastiao">
                 <Button button-text="VER EXEMPLOS" primary class="w-full md:w-6/12 mt-4" />
             </RouterLink>
         </div>
