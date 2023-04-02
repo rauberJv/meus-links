@@ -6,15 +6,18 @@ export const useCadastroStore = defineStore('cadastro', {
         status: 'neutro',
         empresa: {}
     }),
-    getters: {
-
-    },
     actions: {
-        enviarCadastro(dadosCadastro) {
-            this.loading = true
-            setTimeout(() => {
+        async enviarCadastro(dadosCadastro) {
+            try{
+                this.loading = true
+                this.status = 'neutro'
+                let response = await axiosInstance.post('/cadastros', dadosCadastro)
+                this.status = 'sucesso'
+            }catch(error){
+                this.status = 'error'
+            } finally {
                 this.loading = false
-            }, 5000)
+            }
         },
         async buscarDados(empresa) {
             let response = await axiosInstance.get(`/empresas/${empresa}`)

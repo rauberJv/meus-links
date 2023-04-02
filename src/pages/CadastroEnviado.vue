@@ -22,7 +22,7 @@ import Button from "../components/Button.vue"
             inspirar-se para construir a sua própria página personalizada.
         </p>
         <router-link to="/">
-            <Button button-text="RETORNAR AO INICIO" primary class="w-full md:w-6/12 mt-12 font-bold" />
+            <Button button-text="RETORNAR AO INICIO" type="primary" class="w-full md:w-6/12 mt-12 font-bold" />
         </router-link>
     </div>
 </template>

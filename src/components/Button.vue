@@ -14,7 +14,6 @@ const colorClasses = {
     primary: 'bg-blue-500 hover:bg-blue-600',
     secondary: 'bg-green-500 hover:bg-green-600'
 }
-console.log(props.type)
 const componentClass = `${colorClasses[props.type]} p-4 rounded-md text-xl font-semibold transition ease-in-out duration-150`
 </script>
 <template>

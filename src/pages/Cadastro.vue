@@ -3,17 +3,23 @@ import { ref } from "vue";
 import Button from "../components/Button.vue"
 import { useCadastroStore } from "../store/cadastro";
 import { v4 as uuidv4 } from 'uuid'
+import { useRouter } from 'vue-router'
 
 const store = useCadastroStore()
+const router = useRouter()
 
 let empresa = ref('')
 let contato = ref('')
 let email = ref('')
 
-function enviarCadastro() {
-    store.enviarCadastro({ empresa, contato, email })
+async function enviarCadastro() {
     let uuid = uuidv4();
-    console.log(uuid)
+    await store.enviarCadastro({ uuid, empresa, contato, email })
+    
+    if(store.status === 'sucesso')
+        router.push('/cadastro-enviado')
+    else
+        router.push('/')
 }
 
 </script>
