@@ -1,27 +1,43 @@
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import Button from "../components/Button.vue"
 import { useCadastroStore } from "../store/cadastro";
 import { v4 as uuidv4 } from 'uuid'
 import { useRouter } from 'vue-router'
+import useVuelidate from '@vuelidate/core'
+import { required, email, numeric } from '@vuelidate/validators'
 
-const store = useCadastroStore()
+required.$message = "Este campo é obrigatório"
+email.$message = "Este campo deve ser um email válido"
+numeric.$message = "Este campo deve conter apenas números"
+
+const cadastroStore = useCadastroStore()
 const router = useRouter()
+const store = reactive({
+    empresa: '',
+    contato: '',
+    email: ''
+})
 
-let empresa = ref('')
-let contato = ref('')
-let email = ref('')
-
-async function enviarCadastro() {
-    let uuid = uuidv4();
-    await store.enviarCadastro({ uuid, empresa, contato, email })
-    
-    if(store.status === 'sucesso')
-        router.push('/cadastro-enviado')
-    else
-        router.push('/')
+const rules = {
+    empresa: { required },
+    contato: { required, numeric },
+    email: { required, email }
 }
 
+const v$ = useVuelidate(rules, store)
+
+async function enviarCadastro() {
+    await v$._value.$validate()
+    if (!v$._value.$invalid) {
+        let uuid = uuidv4();
+        await cadastroStore.enviarCadastro({ uuid, ...store, cadastrado: false })
+        if (cadastroStore.status === 'sucesso')
+            router.push('/cadastro-enviado')
+        else
+            router.push('/')
+    }
+}
 </script>
 
 <template>
@@ -42,24 +58,34 @@ async function enviarCadastro() {
                 </legend>
                 <div class="text-left">
                     <label class="block" for="empresa">Empresa</label>
-                    <input v-model="empresa"
+                    <input v-model="store.empresa"
                         class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
                         placeholder="Digite o nome da sua empresa aqui" type="text" name="empresa" id="empresa">
+                    <div class="input-errors" v-for="error of v$.empresa.$errors" :key="error.$uid">
+                        <div class="text-red-500 font-light">{{ error.$message }}</div>
+                    </div>
                 </div>
                 <div class="text-left mt-4">
                     <label class="block" for="contato">WhatsApp</label>
-                    <input v-model="contato"
+                    <input v-model="store.contato"
                         class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
                         placeholder="+55 (XX) XXXX-XXXX" type="text" name="contato" id="contato">
+                    <div class="input-errors" v-for="error of v$.contato.$errors" :key="error.$uid">
+                        <div class="text-red-500 font-light">{{ error.$message }}</div>
+                    </div>
                 </div>
                 <div class="text-left mt-4">
                     <label class="block" for="contato">Email</label>
-                    <input v-model="email" class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
+                    <input v-model="store.email"
+                        class="w-full text-xl p-2 text-white bg-transparent border-b b-none border-white"
                         placeholder="exemplo@empresa.com" type="email" name="email" id="email">
+                    <div class="input-errors" v-for="error of v$.email.$errors" :key="error.$uid">
+                        <div class="text-red-500 font-light">{{ error.$message }}</div>
+                    </div>
                 </div>
             </fieldset>
-            <Button :loading="store.loading" :button-text="store.loading ? 'Enviando Dados' : 'Cadastrar'" type="primary"
-                class="w-full md:w-6/12 mt-12 font-bold" />
+            <Button :loading="cadastroStore.loading" :button-text="cadastroStore.loading ? 'Enviando Dados' : 'Cadastrar'"
+                type="primary" class="w-full md:w-6/12 mt-12 font-bold" />
         </form>
     </div>
 </template>
