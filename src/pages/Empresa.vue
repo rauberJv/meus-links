@@ -35,13 +35,5 @@ onMounted(() => {
                 :link="link.url" class="mt-4">
             </LinkButton>
         </div>
-        <div class="flex flex-row mt-24 justify-between">
-            <router-link to="/" class="w-6/12 pr-1">
-                <Button button-text="Retornar" type="secondary" class="w-full" />
-            </router-link>
-            <router-link to="/exemplo/mercadosaosebastiao" class="w-6/12 pl-1">
-                <Button button-text="Proximo" type="secondary" class="w-full" />
-            </router-link>
-        </div>
     </div>
 </template>
